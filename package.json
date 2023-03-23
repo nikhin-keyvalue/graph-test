@@ -2,9 +2,9 @@
   "name": "react-scatter-graph",
   "version": "0.0.1",
   "description": "A fully customizable react scatter graph",
-  "main": "build/index.js",
+  "main": "index.js",
   "source": "src/index.tsx",
-  "types": "build/types/index.d.ts",
+  "types": "types/index.d.ts",
   "scripts": {
     "start": "webpack watch && tsc",
     "build": "webpack && tsc",
