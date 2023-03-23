@@ -1,0 +1,23 @@
+export interface GraphPoint {
+  x: number;
+  y: number;
+}
+
+export interface FormattedGraphPoint {
+  x: number;
+  y: number;
+  yPlot: number;
+  xPlot: number;
+}
+
+export interface ScatterGraphPropTypes {
+  data: Array<GraphPoint>;
+  yMax: number;
+  xMax: number;
+  yInterval: number;
+  xInterval: number;
+  graphHeight: number;
+  renderYLabel?: (arg: number | string) => string;
+  renderXLabel?: (arg: number | string) => string;
+  scatterPointColor?: (arg: GraphPoint) => string;
+}
