@@ -47,23 +47,7 @@ function  App()  {
 
 export default App;
 ```
-The `data` array is an array of objects with basic keys like
-
--  `x` - an integer  that can be shown as step label title to your step indicator
--  `y` - a string that can be show as step description below the step label
-
->Note:  You can also add any other keys to the step object and other statuses like `skipped` for different customizations as per requirements
-
-You can customize the step indicator bubble with your own DOM element using the `renderBubble` prop
-
-```jsx
-<Stepper
-  steps={stepsArray}
-  currentStepIndex={currentStepIndex}
-  renderBubble={(step, stepIndex) => (<div key={stepIndex}>{step.label}</div>)}
-/>
-```
-The `step` param provided by the `renderBubble` callback is the same object you pass as array item in `steps` prop.
+The `data` array is an array of objects with { x, y } cordinates.
 
 ## Props
 
