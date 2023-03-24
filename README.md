@@ -135,53 +135,9 @@ Props that can be passed to the component are listed below:
     <tr>
       <td><code><b>scatterPointColor?:</b> (arg: { x: number, y: number }): string</code></td>
       <td>
-        Render function for customizing scatter point color. Function should return the color.
+        Function for customizing scatter point color. Based on the args, we can customise the color. Return value should be the color hash / string.
       </td>
       <td><code>undefined</code></td>
     </tr>
   </tbody>
 </table>
-
-## Style Customizations
-
-All the default styles provided by this package are overridable using the `style` prop
-the below code shows all the overridable styles:
-
-```jsx
-import React from 'react';
-import Stepper from 'react-vertical-stepper';
-
-function App() {
-
- const stylesOverrride = {
-   LabelTitle: (step, stepIndex) => ({...styles}),
-   ActiveLabelTitle: (step, stepIndex) => ({...styles}),
-   LabelDescription: (step, stepIndex) => ({...styles}),
-   ActiveLabelDescription: (step, stepIndex) => ({...styles}),
-   LineSeparator: (step, stepIndex) => ({...styles}),
-   InactiveLineSeparator: (step, stepIndex) => ({...styles}),
-   Bubble: (step, stepIndex) => ({...styles}),
-   ActiveBubble: (step, stepIndex) => ({...styles}),
-   InActiveBubble: (step, stepIndex) => ({...styles}),
- };
- return (
-   <Stepper
-     steps={stepsArray}
-	 currentStepIndex={currentStepIndex}
-	 styles={stylesOverrride}
-   />
- );
-}
-
-export default App;
-```
-  
--  `LabelTitle` - overrides the step label style
--  `ActiveLabelTitle` - overrides the step label style of current active step
--  `LabelDescription` - overrides the step description style
--  `ActiveLabelDescription` - overrides the step description style of current active step
--  `LineSeparator` - overrides default step connector line styles
--  `InactiveLineSeparator` - overrides styles of step connector line after current active step
--  `Bubble` - overrides default styles of step indicator
--  `ActiveBubble` - overrides default styles of step indicator of current active step
--  `InActiveBubble` - overrides default styles of step indicator that has `unvisited` step status
