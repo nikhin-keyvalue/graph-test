@@ -82,7 +82,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
             key={index}
             className='yPoints'
             style={{
-              top: index * yRatio * yInterval - index * textHeight - 7
+              top: index * getGraphCoordinate(yInterval, yRatio) - index * textHeight - 7
             }}
           >
             {renderYLabel ? renderYLabel(yLabel) : yLabel}
@@ -98,8 +98,8 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               key={index}
               x1='0'
               x2={graphWidth}
-              y1={`${index * yRatio * yInterval}`}
-              y2={`${index * yRatio * yInterval}`}
+              y1={`${index * getGraphCoordinate(yInterval, yRatio)}`}
+              y2={`${index * getGraphCoordinate(yInterval, yRatio)}`}
               strokeDasharray={4}
               stroke={axesColor}
               strokeWidth={1}
