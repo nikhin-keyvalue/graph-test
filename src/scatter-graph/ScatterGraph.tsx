@@ -43,23 +43,16 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   const yRatio = graphHeight / graphHeightDiff;
   const xRatio = graphWidth / graphWidthDiff;
 
-  const yPoints = Array.from(
-    { length: (graphHeightDiff / yInterval) + 1  },
-    (_, index) => (index * yInterval) + yMin
-  )
-  const xPoints = Array.from(
-    { length: (graphWidthDiff / xInterval) + 1 },
-    (_, index) => (index * xInterval) + xMin
-  );
+  const yPoints = Array.from({ length: graphHeightDiff / yInterval + 1 }, (_, index) => index * yInterval + yMin);
+  const xPoints = Array.from({ length: graphWidthDiff / xInterval + 1 }, (_, index) => index * xInterval + xMin);
 
-  const getGraphCoordinate =  (point: number, ratio: number): number => (point * ratio);
+  const getGraphCoordinate = (point: number, ratio: number): number => point * ratio;
 
   const formattedGraphPoints = data.map((point: GraphPoint) => ({
     ...point,
     yPlot: graphHeight - getGraphCoordinate(point.y, yRatio) + getGraphCoordinate(yMin, yRatio),
     xPlot: getGraphCoordinate(point.x, xRatio) - getGraphCoordinate(xMin, xRatio)
   }));
-
 
   return (
     <div style={{ position: 'relative', display: 'flex' }}>
@@ -91,9 +84,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
       </div>
       <div className='svgWrapper' id='graph-svg-wrapper' ref={parentNode}>
         <svg width={graphWidth} height={graphHeight} version='1.1' viewBox={`0 0 ${graphWidth} ${graphHeight}`}>
-          <line x1={0} x2={graphWidth} y1={graphHeight} y2={graphHeight} stroke={originAxisColor} strokeWidth={1} />
-          <line x1={0} x2={0} y1={0} y2={graphHeight} stroke={originAxisColor} strokeWidth={1} />
-          {yPoints.reverse().map((_, index) => (
+          {yPoints.map((_, index) => (
             <line
               key={index}
               x1='0'
@@ -134,6 +125,8 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               }}
             />
           ))}
+          <line x1={0} x2={graphWidth} y1={graphHeight} y2={graphHeight} stroke={originAxisColor} strokeWidth={1} />
+          <line x1={0} x2={0} y1={0} y2={graphHeight} stroke={originAxisColor} strokeWidth={1} />
         </svg>
         <div style={{ paddingRight: 6, display: 'flex' }}>
           {xPoints.map((text, index) => (
@@ -156,8 +149,8 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
 
 ScatterGraph.defaultProps = {
   graphHeight: 400,
-  axesColor:'#9E9E9E',
+  axesColor: '#9E9E9E',
   originAxisColor: '#9E9E9E'
-}
+};
 
 export default ScatterGraph;
