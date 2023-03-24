@@ -49,6 +49,8 @@ export default App;
 ```
 The `data` array is an array of objects with { x, y } cordinates.
 
+>Note: The graph width is resposive. So the it can be adjusted by paraent wrapper. Need to provide the height.
+
 ## Props
 
 Props that can be passed to the component are listed below:
