@@ -22,8 +22,6 @@ const Template: ComponentStory<typeof ScatterGraph> = () => (
     yInterval={50}
     xInterval={50}
     graphHeight={500}
-    renderYLabel={(item: string | number): string => `${item} Y`}
-    renderXLabel={(item: string | number): string => `${item} X`}
   />
 );
 
@@ -42,5 +40,20 @@ const Template2: ComponentStory<typeof ScatterGraph> = () => (
   />
 );
 
+const Template3: ComponentStory<typeof ScatterGraph> = () => (
+  <ScatterGraph
+    data={data2}
+    yMax={500}
+    xMax={800}
+    yInterval={50}
+    xInterval={40}
+    graphHeight={300}
+    axesColor='#00FF00'
+    xyBorderAxisColor='#DDDDDD'
+  />
+);
+
+
 export const ScatterGraph1 = Template.bind({});
 export const ScatterGraph2 = Template2.bind({});
+export const ScatterGraph3 = Template3.bind({});
