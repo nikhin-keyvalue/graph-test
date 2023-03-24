@@ -38,15 +38,16 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   const textHeight = 16;
   const xyAxisColor = '#9e9e9e';
   const graphHeightDiff = yMax - yMin;
+  const graphWidthDiff = xMax - xMin;
   const yRatio = graphHeight / graphHeightDiff;
-  const xRatio = graphWidth / (xMax - xMin);
+  const xRatio = graphWidth / graphWidthDiff;
 
   const yPoints = Array.from(
     { length: (graphHeightDiff / yInterval) + 1  },
     (_, index) => (index * yInterval) + yMin
   )
   const xPoints = Array.from(
-    { length: ((xMax - xMin) / xInterval) + 1 },
+    { length: (graphWidthDiff / xInterval) + 1 },
     (_, index) => (index * xInterval) + xMin
   );
 
