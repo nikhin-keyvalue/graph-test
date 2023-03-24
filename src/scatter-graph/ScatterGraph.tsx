@@ -13,7 +13,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   xInterval,
   graphHeight,
   axesColor,
-  xyBorderAxisColor,
+  originAxisColor,
   renderYLabel,
   renderXLabel,
   scatterPointColor
@@ -91,8 +91,8 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
       </div>
       <div className='svgWrapper' id='graph-svg-wrapper' ref={parentNode}>
         <svg width={graphWidth} height={graphHeight} version='1.1' viewBox={`0 0 ${graphWidth} ${graphHeight}`}>
-          <line x1={0} x2={graphWidth} y1={graphHeight} y2={graphHeight} stroke={xyBorderAxisColor} strokeWidth={1} />
-          <line x1={0} x2={0} y1={0} y2={graphHeight} stroke={xyBorderAxisColor} strokeWidth={1} />
+          <line x1={0} x2={graphWidth} y1={graphHeight} y2={graphHeight} stroke={originAxisColor} strokeWidth={1} />
+          <line x1={0} x2={0} y1={0} y2={graphHeight} stroke={originAxisColor} strokeWidth={1} />
           {yPoints.reverse().map((_, index) => (
             <line
               key={index}
@@ -157,7 +157,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
 ScatterGraph.defaultProps = {
   graphHeight: 400,
   axesColor:'#9E9E9E',
-  xyBorderAxisColor: '#9E9E9E'
+  originAxisColor: '#9E9E9E'
 }
 
 export default ScatterGraph;

@@ -20,7 +20,7 @@ export type ScatterGraphPropTypes = {
   xInterval: number;
   graphHeight: number;
   axesColor?: string;
-  xyBorderAxisColor?: string;
+  originAxisColor?: string;
   renderYLabel?: (arg: number | string) => string;
   renderXLabel?: (arg: number | string) => string;
   scatterPointColor?: (arg: GraphPoint) => string;

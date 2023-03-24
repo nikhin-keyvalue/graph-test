@@ -51,7 +51,7 @@ const Template3: ComponentStory<typeof ScatterGraph> = () => (
     xInterval={40}
     graphHeight={300}
     axesColor='#00FF00'
-    xyBorderAxisColor='#DDDDDD'
+    originAxisColor='#DDDDDD'
   />
 );
 
