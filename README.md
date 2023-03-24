@@ -25,31 +25,17 @@ React Scatter Graph can run in a very basic mode like this:
 import  React,  {  useState  }  from  'react';
 import ReactScatterGraph from '@keyvaluesystems/react-scatter-graph';
 
-function  App()  {
-  const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  
-  stepsArray = [{
-      label: 'Step 1',
-      description: 'This is Step 1',
-      status: 'completed'
-    },{
-      label: 'Step 2',
-      description: 'This is Step 2',
-      status: 'visited'
-    },{
-      label: 'Step 3',
-      description: 'This is Step 3',
-      status: 'unvisited'
-  }];
+function  App()  {  
+  data = [
+    { x: 450, y: 150 },
+    { x: 360, y: 330 },
+    { x: 650, y: 315 },
+    { x: 270, y: 200}
+  ];
 
   return (
     <ScatterGraph
-      data={[
-        { x: 450, y: 150 },
-        { x: 360, y: 330 },
-        { x: 650, y: 315 },
-        { x: 270, y: 200}
-        ]}
+      data={data}
       yMax={500}
       xMax={600}
       yInterval={50}
