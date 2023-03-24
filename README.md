@@ -79,13 +79,28 @@ Props that can be passed to the component are listed below:
   </thead>
   <tbody>
     <tr>
-      <td><code><b>steps:</b> object[]</code></td>
-      <td>An array of step objects to render.</td>
+      <td><code><b>data:</b> object[]</code></td>
+      <td>An array of x-y cordinates to render.</td>
       <td><code>undefined</code></td>
     </tr>
     <tr>
-      <td><code><b>currentIndex:</b> number</code></td>
-      <td>The index of current active step.</td>
+      <td><code><b>yMin?:</b> number</code></td>
+      <td>Minimum value of Y - axis.</td>
+      <td><code>0</code></td>
+    </tr>
+    <tr>
+      <td><code><b>yMax:</b> number</code></td>
+      <td>Maximum value of Y - axis.</td>
+      <td><code>0</code></td>
+    </tr>
+    <tr>
+      <td><code><b>xMin?:</b> number</code></td>
+      <td>Minimum value of X - axis.</td>
+      <td><code>0</code></td>
+    </tr>
+    <tr>
+      <td><code><b>xMax:</b> number</code></td>
+      <td>Maximum value of X - axis.</td>
       <td><code>0</code></td>
     </tr>
     <tr>
