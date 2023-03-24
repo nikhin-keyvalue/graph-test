@@ -30,6 +30,8 @@ const Template2: ComponentStory<typeof ScatterGraph> = () => (
     data={data2}
     yMax={500}
     xMax={800}
+    yMin={50}
+    xMin={40}
     yInterval={50}
     xInterval={40}
     graphHeight={300}

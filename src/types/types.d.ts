@@ -12,7 +12,9 @@ export type FormattedGraphPoint = {
 
 export type ScatterGraphPropTypes = {
   data: Array<GraphPoint>;
+  yMin?: number;
   yMax: number;
+  xMin?: number;
   xMax: number;
   yInterval: number;
   xInterval: number;

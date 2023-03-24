@@ -5,7 +5,9 @@ import './styles.css';
 
 const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   data,
+  yMin = 0,
   yMax,
+  xMin = 0,
   xMax,
   yInterval,
   xInterval,
@@ -36,15 +38,28 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
 
   // consts
   const textHeight = 16;
-  const yRatio = graphHeight / yMax;
-  const xRatio = graphWidth / xMax;
-  const yPoints = Array.from({ length: yMax / yInterval }, (_, index) => (index + 1) * yInterval);
-  const xPoints = Array.from({ length: xMax / xInterval }, (_, index) => (index + 1) * xInterval);
+  const graphHeightDiff = yMax - yMin;
+  const graphWidthDiff = xMax - xMin;
+  const yRatio = graphHeight / graphHeightDiff;
+  const xRatio = graphWidth / graphWidthDiff;
+
+  const yPoints = Array.from(
+    { length: (graphHeightDiff / yInterval) + 1  },
+    (_, index) => (index * yInterval) + yMin
+  )
+  const xPoints = Array.from(
+    { length: (graphWidthDiff / xInterval) + 1 },
+    (_, index) => (index * xInterval) + xMin
+  );
+
+  const getGraphCoordinate =  (point: number, ratio: number): number => (point * ratio);
+
   const formattedGraphPoints = data.map((point: GraphPoint) => ({
     ...point,
-    yPlot: graphHeight - yRatio * point.y,
-    xPlot: xRatio * point.x
+    yPlot: graphHeight - getGraphCoordinate(point.y, yRatio) + getGraphCoordinate(yMin, yRatio),
+    xPlot: getGraphCoordinate(point.x, xRatio) - getGraphCoordinate(xMin, xRatio)
   }));
+
 
   return (
     <div style={{ position: 'relative', display: 'flex' }}>
@@ -127,7 +142,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               className='xPoints'
               style={{
                 top: graphHeight + 5,
-                left: (index + 1) * (graphWidth / xPoints.length) - 10.5
+                left: index * (graphWidth / (xPoints.length - 1)) - 10.5
               }}
             >
               {renderXLabel ? renderXLabel(text) : text}
