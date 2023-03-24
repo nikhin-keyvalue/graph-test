@@ -133,7 +133,7 @@ Props that can be passed to the component are listed below:
       <td><code>undefined</code></td>
     </tr>
     <tr>
-      <td><code><b>scatterPointColor?:</b> (arg: <x: number, y: number>): string</code></td>
+      <td><code><b>scatterPointColor?:</b> (arg: { x: number, y: number }): string</code></td>
       <td>
         Render function for customizing scatter point color. Function should return the color.
       </td>
