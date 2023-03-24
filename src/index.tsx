@@ -1,3 +1,3 @@
-import ScatterGraph from "./scatter-graph";
+import ReactScatterGraph from "./scatter-graph/ScatterGraph";
 
-export default ScatterGraph;
+export default ReactScatterGraph;

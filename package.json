@@ -1,13 +1,13 @@
 {
   "name": "react-scatter-graph",
-  "version": "0.0.1",
+  "version": "0.0.22",
   "description": "A fully customizable react scatter graph",
-  "main": "index.js",
+  "main": "./build/index.js",
   "source": "src/index.tsx",
-  "types": "types/index.d.ts",
+  "types": "./build/types/index.d.ts",
   "scripts": {
     "start": "webpack watch && tsc",
-    "build": "webpack && tsc",
+    "build": "webpack",
     "eslint": "eslint src",
     "test": "jest --config ./jest.config.js",
     "coverage": "npm run test -- --coverage",
@@ -54,8 +54,10 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^9.1.2",
     "babel-preset-minify": "^0.5.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^4.2.2",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^7.32.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
@@ -75,7 +77,7 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "4.11.1"
+    "webpack-merge-and-include-globally": "^2.3.4"
   },
   "peerDependencies": {
     "react": "^18.2.0"

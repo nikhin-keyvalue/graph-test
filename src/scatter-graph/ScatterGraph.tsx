@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { GraphPoint, FormattedGraphPoint, ScatterGraphPropTypes } from '../types/types';
-import classes from './styles.module.scss';
+import './styles.css';
 
 const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   data,
@@ -57,10 +57,10 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   }));
 
   return (
-    <div style={{ position: 'relative', display: 'flex', margin: 20 }}>
+    <div style={{ position: 'relative', display: 'flex' }}>
       {showVerticalLine && (
         <div
-          className={classes.verticalLine}
+          className='verticalLine'
           style={{
             top: pos.yPlot + 20,
             left: pos.xPlot + 40
@@ -75,7 +75,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
         {yPoints.reverse().map((yLabel: number | string, index: number) => (
           <div
             key={index}
-            className={classes.yPoints}
+            className='yPoints'
             style={{
               top: index * yRatio * yInterval - index * textHeight - 7
             }}
@@ -84,11 +84,11 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
           </div>
         ))}
       </div>
-      <div className={classes.svgWrapper} ref={parentNode}>
+      <div className='svgWrapper' id='graph-svg-wrapper' ref={parentNode}>
         <svg width={graphWidth} height={graphHeight} version='1.1' viewBox={`0 0 ${graphWidth} ${graphHeight}`}>
           <line x1={0} x2={graphWidth} y1={graphHeight} y2={graphHeight} stroke='#000' strokeWidth={1} />
           <line x1={0} x2={0} y1={0} y2={graphHeight} stroke='#000' strokeWidth={1} />
-          {yPoints.reverse().map((text, index) => (
+          {yPoints.reverse().map((_, index) => (
             <line
               key={index}
               x1='0'
@@ -110,7 +110,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               strokeDasharray='4'
               stroke={xyAxisColor}
               strokeWidth={1}
-              className={classes.hoverVerticalLine}
+              className='hoverVerticalLine'
             />
           )}
           {formattedGraphPoints.map((grapghPoint: FormattedGraphPoint, index: number) => (
@@ -119,7 +119,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               cx={grapghPoint.xPlot}
               cy={grapghPoint.yPlot}
               fill={scatterPointColor ? scatterPointColor(grapghPoint) : '#f00'}
-              className={classes.dotHover}
+              className='dotHover'
               onMouseEnter={(): void => {
                 setPos(grapghPoint);
                 setShowVerticalLine(true);
@@ -134,7 +134,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
           {xPoints.map((text, index) => (
             <div
               key={index}
-              className={classes.xPoints}
+              className='xPoints'
               style={{
                 top: graphHeight + 5,
                 left: index * (graphWidth / (xPoints.length - 1)) - 10.5
