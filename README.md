@@ -1,29 +1,29 @@
 
-# React Scattered graph
+# React Scatter graph
 <a href="https://www.npmjs.com/package/react-vertical-stepper"><img src="https://badgen.net/npm/v/react-vertical-stepper?color=blue" alt="npm version"></a> <a href="https://www.npmjs.com/package/react-vertical-stepper" ><img src="https://img.shields.io/npm/dw/react-vertical-stepper?label=Downloads" /></a> <a href="https://github.com/KeyValueSoftwareSystems/react-vertical-stepper"><img src="https://github.com/KeyValueSoftwareSystems/react-vertical-stepper/actions/workflows/update-and-publish.yml/badge.svg" alt="" /></a>
 
 <div align="center">
 <img src="./src/assets/vertical-stepper-example.png" alt="" width="269" height="416"/>
 </div>
 
-A fully customizable ready to use vertical stepper UI package for React.
+A fully customizable ready to use scatter graph UI package for React.
 Try tweaking a vertical stepper using this codesandbox link <a href="https://codesandbox.io/s/vertical-stepper-demo-x24q7u" >here</a>
 
 ## Installation
 
 ```bash
-npm install react-vertical-stepper
+npm install @keyvaluesystems/react-scatter-graph
 ```
 
 You’ll need to install React separately since it isn't included in the package.
 
 ## Usage
 
-React Vertical Stepper can run in a very basic mode by just providing the `steps` and `currentStepIndex` props like this:
+React Scatter Graph can run in a very basic mode like this:
 
 ```jsx
 import  React,  {  useState  }  from  'react';
-import Stepper from 'react-vertical-stepper';
+import ReactScatterGraph from '@keyvaluesystems/react-scatter-graph';
 
 function  App()  {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
@@ -43,20 +43,28 @@ function  App()  {
   }];
 
   return (
-    <Stepper
-      steps={stepsArray}
-      currentStepIndex={currentStepIndex}
+    <ScatterGraph
+      data={[
+        { x: 450, y: 150 },
+        { x: 360, y: 330 },
+        { x: 650, y: 315 },
+        { x: 270, y: 200}
+        ]}
+      yMax={500}
+      xMax={600}
+      yInterval={50}
+      xInterval={50}
+      graphHeight={500}
     />
   );
 }
 
 export default App;
 ```
-The `steps` array is an array of objects with basic keys like
+The `data` array is an array of objects with basic keys like
 
--  `label` - a string that can be shown as step label title to your step indicator
--  `description` - a string that can be show as step description below the step label
--  `status` - can be provided with any of `visited`, `unvisited`, `completed`. Will be required if you are using default styles.
+-  `x` - an integer  that can be shown as step label title to your step indicator
+-  `y` - a string that can be show as step description below the step label
 
 >Note:  You can also add any other keys to the step object and other statuses like `skipped` for different customizations as per requirements
 
