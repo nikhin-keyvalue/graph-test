@@ -5,9 +5,9 @@ import classes from './styles.module.scss';
 
 const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   data,
-  yMin,
+  yMin = 0,
   yMax,
-  xMin,
+  xMin = 0,
   xMax,
   yInterval,
   xInterval,
@@ -37,26 +37,23 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   // consts
   const textHeight = 16;
   const xyAxisColor = '#9e9e9e';
-  const yRatio = yMin ? graphHeight / (yMax - yMin) : graphHeight / yMax;
-  const xRatio = xMin ? graphWidth / (xMax - xMin) : graphWidth / xMax;
-  const yPoints = yMin ? Array.from(
-    { length: ((yMax - yMin) / yInterval) + 1  },
+  const graphHeightDiff = yMax - yMin;
+  const yRatio = graphHeight / graphHeightDiff;
+  const xRatio = graphWidth / (xMax - xMin);
+
+  const yPoints = Array.from(
+    { length: (graphHeightDiff / yInterval) + 1  },
     (_, index) => (index * yInterval) + yMin
-  ) : Array.from(
-    { length: (yMax / yInterval) + 1 },
-    (_, index) => index * yInterval
-  );
-  const xPoints = xMin ? Array.from(
+  )
+  const xPoints = Array.from(
     { length: ((xMax - xMin) / xInterval) + 1 },
     (_, index) => (index * xInterval) + xMin
-  ) : Array.from(
-    { length: (xMax / xInterval) + 1 },
-    (_, index) => index * xInterval
   );
+
   const formattedGraphPoints = data.map((point: GraphPoint) => ({
     ...point,
-    yPlot: graphHeight - yRatio * point.y,
-    xPlot: xRatio * point.x
+    yPlot: graphHeight - yRatio * point.y + (yMin * yRatio),
+    xPlot: xRatio * point.x - (xMin * xRatio)
   }));
 
   return (
