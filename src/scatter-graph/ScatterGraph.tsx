@@ -46,7 +46,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   }));
 
   return (
-    <div style={{ position: 'relative', display: 'flex', margin: 20 }}>
+    <div style={{ position: 'relative', display: 'flex' }}>
       {showVerticalLine && (
         <div
           className='verticalLine'
@@ -73,7 +73,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
           </div>
         ))}
       </div>
-      <div className='svgWrapper' ref={parentNode}>
+      <div className='svgWrapper' id='graph-svg-wrapper' ref={parentNode}>
         <svg width={graphWidth} height={graphHeight} version='1.1' viewBox={`0 0 ${graphWidth} ${graphHeight}`}>
           <line x1={0} x2={graphWidth} y1={graphHeight} y2={graphHeight} stroke='#000' strokeWidth={1} />
           <line x1={0} x2={0} y1={0} y2={graphHeight} stroke='#000' strokeWidth={1} />

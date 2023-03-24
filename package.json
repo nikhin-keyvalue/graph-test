@@ -1,6 +1,6 @@
 {
   "name": "react-scatter-graph",
-  "version": "0.0.20",
+  "version": "0.0.22",
   "description": "A fully customizable react scatter graph",
   "main": "./build/index.js",
   "source": "src/index.tsx",
