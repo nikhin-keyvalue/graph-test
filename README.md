@@ -91,7 +91,7 @@ Props that can be passed to the component are listed below:
     <tr>
       <td><code><b>yMax:</b> number</code></td>
       <td>Maximum value of Y - axis.</td>
-      <td><code>0</code></td>
+      <td><code>undefuned</code></td>
     </tr>
     <tr>
       <td><code><b>xMin?:</b> number</code></td>
@@ -101,7 +101,17 @@ Props that can be passed to the component are listed below:
     <tr>
       <td><code><b>xMax:</b> number</code></td>
       <td>Maximum value of X - axis.</td>
+      <td><code>undefuned</code></td>
+    </tr>
+    <tr>
+      <td><code><b>xInterval:</b> number</code></td>
+      <td>Interval value X - axis.</td>
       <td><code>0</code></td>
+    </tr>
+    <tr>
+      <td><code><b>yInterval:</b> number</code></td>
+      <td>Interval value Y - axis.</td>
+      <td><code>undefuned</code></td>
     </tr>
     <tr>
       <td><code><b>onStepClick?:</b> (step: object, stepIndex: number): void</code></td>
