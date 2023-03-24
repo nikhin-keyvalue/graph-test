@@ -5,7 +5,9 @@ import classes from './styles.module.scss';
 
 const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   data,
+  yMin,
   yMax,
+  xMin,
   xMax,
   yInterval,
   xInterval,
@@ -35,10 +37,22 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   // consts
   const textHeight = 16;
   const xyAxisColor = '#9e9e9e';
-  const yRatio = graphHeight / yMax;
-  const xRatio = graphWidth / xMax;
-  const yPoints = Array.from({ length: yMax / yInterval }, (_, index) => (index + 1) * yInterval);
-  const xPoints = Array.from({ length: xMax / xInterval }, (_, index) => (index + 1) * xInterval);
+  const yRatio = yMin ? graphHeight / (yMax - yMin) : graphHeight / yMax;
+  const xRatio = xMin ? graphWidth / (xMax - xMin) : graphWidth / xMax;
+  const yPoints = yMin ? Array.from(
+    { length: ((yMax - yMin) / yInterval) + 1  },
+    (_, index) => (index * yInterval) + yMin
+  ) : Array.from(
+    { length: (yMax / yInterval) + 1 },
+    (_, index) => index * yInterval
+  );
+  const xPoints = xMin ? Array.from(
+    { length: ((xMax - xMin) / xInterval) + 1 },
+    (_, index) => (index * xInterval) + xMin
+  ) : Array.from(
+    { length: (xMax / xInterval) + 1 },
+    (_, index) => index * xInterval
+  );
   const formattedGraphPoints = data.map((point: GraphPoint) => ({
     ...point,
     yPlot: graphHeight - yRatio * point.y,
@@ -126,7 +140,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               className={classes.xPoints}
               style={{
                 top: graphHeight + 5,
-                left: (index + 1) * (graphWidth / xPoints.length) - 10.5
+                left: index * (graphWidth / (xPoints.length - 1)) - 10.5
               }}
             >
               {renderXLabel ? renderXLabel(text) : text}
