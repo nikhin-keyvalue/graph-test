@@ -1,3 +1,3 @@
-import ScatterGraph from "./scatter-graph";
+import ScatterGraph from "./scatter-graph/ScatterGraph";
 
 export default ScatterGraph;

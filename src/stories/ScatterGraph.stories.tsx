@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ScatterGraph from '.';
+import ScatterGraph from '../scatter-graph/ScatterGraph';
 import { GraphPoint } from '../types/types';
 
 const data = [

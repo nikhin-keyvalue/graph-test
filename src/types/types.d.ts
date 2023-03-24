@@ -1,16 +1,16 @@
-export interface GraphPoint {
+export type GraphPoint = {
   x: number;
   y: number;
 }
 
-export interface FormattedGraphPoint {
+export type FormattedGraphPoint = {
   x: number;
   y: number;
   yPlot: number;
   xPlot: number;
 }
 
-export interface ScatterGraphPropTypes {
+export type ScatterGraphPropTypes = {
   data: Array<GraphPoint>;
   yMax: number;
   xMax: number;
