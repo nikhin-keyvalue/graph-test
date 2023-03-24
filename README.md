@@ -106,7 +106,7 @@ Props that can be passed to the component are listed below:
     <tr>
       <td><code><b>xInterval:</b> number</code></td>
       <td>Interval value X - axis.</td>
-      <td><code>0</code></td>
+      <td><code>undefuned</code></td>
     </tr>
     <tr>
       <td><code><b>yInterval:</b> number</code></td>
@@ -114,30 +114,28 @@ Props that can be passed to the component are listed below:
       <td><code>undefuned</code></td>
     </tr>
     <tr>
-      <td><code><b>onStepClick?:</b> (step: object, stepIndex: number): void</code></td>
+      <td><code><b>graphHeight:</b> number</code></td>
+      <td>Height of graph in pixel</td>
+      <td><code>undefuned</code></td>
+    </tr>
+    <tr>
+      <td><code><b>renderYLabel?:</b> (arg: number | string): string</code></td>
       <td>
-        A step click handler that fires each time you click on a step, its label or its description.
+        Render function for customizing Y axis label
+      </td>
+      <td><code>undefined</code></td>
+    </tr>
+        <tr>
+      <td><code><b>renderXLabel?:</b> (arg: number | string): string</code></td>
+      <td>
+        Render function for customizing X axis label
       </td>
       <td><code>undefined</code></td>
     </tr>
     <tr>
-      <td><code><b>renderBubble?:</b> (step: object, stepIndex: number): ReactElement</code></td>
+      <td><code><b>scatterPointColor?:</b> (arg: GraphPoint): string</code></td>
       <td>
-        A render function to customize your step indicator with your own element.
-      </td>
-      <td><code>undefined</code></td>
-    </tr>
-    <tr>
-      <td><code><b>labelPosition?:</b> 'left' | 'right'</code></td>
-      <td>
-        Allows you to align step label and description to either <code>left</code> or <code>right</code> of step indicator
-      </td>
-      <td><code>right</code></td>
-    </tr>
-    <tr>
-      <td><code><b>styles?:</b> object</code></td>
-      <td>
-        Provides you with a bunch of callback functions to override the default styles.
+        Render function for customizing scatter point color.
       </td>
       <td><code>undefined</code></td>
     </tr>
